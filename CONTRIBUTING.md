@@ -29,6 +29,7 @@ npm test
 3. **Test olmadan özellik olmaz.** Geçerli ve geçersiz örnekleri, uç durumları (boş metin, boşluklar, sınır değerler) test edin.
 4. **Fonksiyon adları İngilizce, açıklamalar Türkçe.** Böylece kütüphane her projede doğal görünür, belgeler de hedef kitleye uygun olur.
 5. **Küçük PR'lar.** Her PR tek bir konuya odaklansın.
+6. **Gerçek kişisel veri kullanmayın.** Testlerde, örneklerde ve issue'larda gerçek TC kimlik no, vergi no veya IBAN yerine hayalî numaralar kullanın. Geçerli bir hayalî numara gerekiyorsa `123456789` gibi bir desen seçip kontrol hanesini algoritmayla hesaplayın.
 
 ## Yeni bir özellik eklemek
 

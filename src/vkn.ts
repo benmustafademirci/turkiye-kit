@@ -16,8 +16,8 @@ import { isValidTCKN } from './tckn.js';
  * doğrulaması için GİB servisleri kullanılmalıdır.
  *
  * @example
- * isValidVKN('4540536920') // true
- * isValidVKN('4540536921') // false
+ * isValidVKN('1234567890') // true
+ * isValidVKN('1234567891') // false
  */
 export function isValidVKN(value: string): boolean {
   const vkn = compact(value);
@@ -41,7 +41,7 @@ export function isValidVKN(value: string): boolean {
  * (örneğin e-Fatura'da her ikisi de geçerlidir).
  *
  * @example
- * isValidTaxId('4540536920')  // true (VKN)
+ * isValidTaxId('1234567890')  // true (VKN)
  * isValidTaxId('10000000146') // true (TCKN)
  */
 export function isValidTaxId(value: string): boolean {

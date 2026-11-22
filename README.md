@@ -44,11 +44,11 @@ isValidTCKN('10000000145');      // false
 ```ts
 import { isValidVKN, isValidTaxId } from 'turkiye-kit';
 
-isValidVKN('4540536920');     // true
-isValidVKN('0010213576');     // true (0 ile başlayabilir, bu yüzden string verin)
+isValidVKN('1234567890');     // true
+isValidVKN('0123456789');     // true (0 ile başlayabilir, bu yüzden string verin)
 
 // Şirketler VKN, şahıslar TCKN kullanır. İkisini birden kabul etmek için:
-isValidTaxId('4540536920');   // true (VKN)
+isValidTaxId('1234567890');   // true (VKN)
 isValidTaxId('10000000146');  // true (TCKN)
 ```
 
@@ -104,6 +104,13 @@ slugify('Çok Güzel Şarkılar', '_'); // 'cok_guzel_sarkilar'
 ## Önemli not
 
 Doğrulama fonksiyonları yalnızca numaranın **matematiksel olarak** geçerli olduğunu kontrol eder. Bir TC kimlik veya vergi numarasının gerçek bir kişiye ya da şirkete ait olduğunu göstermez. Bunun için resmî servisler (NVİ, GİB) kullanılmalıdır.
+
+## Gizlilik ve KVKK
+
+- `turkiye-kit` **hiçbir veri toplamaz, saklamaz veya göndermez.** Ağ bağlantısı kurmaz, tüm kontroller kodu çalıştıran cihazda yapılır.
+- Kütüphane numara **üretmez**, yalnızca kendisine verilen numarayı kontrol eder.
+- Gerçek kişisel verileri (TC kimlik no, IBAN vb.) işleyen uygulamaların 6698 sayılı Kişisel Verilerin Korunması Kanunu'na (KVKK) uyması, o uygulamanın sahibinin sorumluluğundadır.
+- README, testler ve kod örneklerindeki numaralar örnek amaçlıdır, gerçek kişi veya şirketlerden alınmamıştır.
 
 ## Yol haritası
 
