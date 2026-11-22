@@ -7,7 +7,7 @@ Katkıda bulunmak istediğiniz için teşekkürler! Bu rehber ilk katkınızı k
 Node.js 20 veya üstü gerekir.
 
 ```bash
-git clone <repo-adresi>
+git clone https://github.com/benmustafademirci/turkiye-kit.git
 cd turkiye-kit
 npm install
 npm test

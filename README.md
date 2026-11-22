@@ -1,5 +1,8 @@
 # turkiye-kit
 
+[![CI](https://github.com/benmustafademirci/turkiye-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/benmustafademirci/turkiye-kit/actions/workflows/ci.yml)
+[![Lisans: MIT](https://img.shields.io/badge/lisans-MIT-blue.svg)](LICENSE)
+
 Türkiye'ye özel doğrulama ve biçimlendirme araçları. **Sıfır bağımlılık**, TypeScript tipleri dahil, Node.js, tarayıcı, Bun ve Deno'da çalışır.
 
 ```ts
@@ -115,7 +118,7 @@ Katkıya açık konular. Başlamak için iyi yerler:
 
 ## Katkıda bulunma
 
-Katkılarınızı bekliyoruz! Nasıl başlayacağınız [CONTRIBUTING.md](CONTRIBUTING.md) dosyasında anlatılıyor.
+Katkılarınızı bekliyoruz! Nasıl başlayacağınız [CONTRIBUTING.md](CONTRIBUTING.md) dosyasında anlatılıyor. Hata bildirmek veya özellik önermek için [bir issue açın](https://github.com/benmustafademirci/turkiye-kit/issues/new/choose).
 
 ## Lisans
 

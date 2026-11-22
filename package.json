@@ -16,6 +16,14 @@
     "slugify"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benmustafademirci/turkiye-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benmustafademirci/turkiye-kit/issues"
+  },
+  "homepage": "https://github.com/benmustafademirci/turkiye-kit#readme",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
