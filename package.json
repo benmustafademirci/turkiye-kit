@@ -1,0 +1,54 @@
+{
+  "name": "turkiye-kit",
+  "version": "0.1.0",
+  "description": "Türkiye'ye özel doğrulama ve biçimlendirme araçları: TC kimlik no, vergi no, IBAN, sayıyı yazıya çevirme, Türkçe slug. Sıfır bağımlılık.",
+  "keywords": [
+    "turkiye",
+    "turkey",
+    "turkish",
+    "tckn",
+    "tc-kimlik",
+    "vkn",
+    "vergi-numarasi",
+    "iban",
+    "sayiyi-yaziya-cevir",
+    "number-to-words",
+    "slugify"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.1"
+  }
+}

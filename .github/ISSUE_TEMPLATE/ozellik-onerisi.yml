@@ -1,0 +1,23 @@
+name: Özellik önerisi
+description: Kütüphaneye eklenmesini istediğiniz bir araç
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Ne yapmak istiyorsunuz?
+      description: Hangi problemi çözmek istediğinizi anlatın.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Önerdiğiniz kullanım
+      render: ts
+      placeholder: |
+        isValidPhone('+90 532 123 45 67') // true
+  - type: textarea
+    id: source
+    attributes:
+      label: Kuralın kaynağı
+      description: Resmî belge, standart veya güvenilir bir kaynak bağlantısı (biliyorsanız).

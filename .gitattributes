@@ -1,0 +1,2 @@
+# Windows'ta da Linux'ta da satır sonları LF olsun (CI ile farklılık çıkmasın)
+* text=auto eol=lf

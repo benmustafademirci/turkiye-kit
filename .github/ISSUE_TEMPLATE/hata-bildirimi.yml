@@ -1,0 +1,35 @@
+name: Hata bildirimi
+description: Bir fonksiyon yanlış sonuç veriyor veya hata fırlatıyor
+labels: [bug]
+body:
+  - type: input
+    id: function
+    attributes:
+      label: Hangi fonksiyon?
+      placeholder: örn. moneyToWords
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Hatayı gösteren kod
+      description: Lütfen gerçek kişisel veri (gerçek TC kimlik no, IBAN vb.) paylaşmayın.
+      render: ts
+      placeholder: |
+        moneyToWords(1000.10)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen ve gerçekleşen sonuç
+      placeholder: |
+        Beklenen: 'bin lira on kuruş'
+        Gerçekleşen: ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: turkiye-kit sürümü
+      placeholder: örn. 0.1.0
