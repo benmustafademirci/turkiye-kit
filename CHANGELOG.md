@@ -3,7 +3,11 @@
 Bu projedeki önemli değişiklikler bu dosyada listelenir.
 Sürüm numaraları [Semantic Versioning](https://semver.org/lang/tr/) kurallarına uyar.
 
-## [Yayınlanmamış]
+## [0.2.0] - 2026-11-22
+
+### Eklendi
+
+- `parsePhone`, `isValidPhone`, `formatPhone`: Türkiye telefon numarası çözümleme, doğrulama ve biçimlendirme. Mobil, sabit hat (KKTC dahil), 0800, 0850, 0900, 444 ve diğer türler desteklenir. Numara aralıkları Google libphonenumber verisinden alındı ve libphonenumber-js ile 80.000 numara üzerinde karşılaştırıldı.
 
 ### Değişti
 

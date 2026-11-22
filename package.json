@@ -1,7 +1,7 @@
 {
   "name": "turkiye-kit",
-  "version": "0.1.0",
-  "description": "Türkiye'ye özel doğrulama ve biçimlendirme araçları: TC kimlik no, vergi no, IBAN, sayıyı yazıya çevirme, Türkçe slug. Sıfır bağımlılık.",
+  "version": "0.2.0",
+  "description": "Türkiye'ye özel doğrulama ve biçimlendirme araçları: TC kimlik no, vergi no, IBAN, telefon numarası, sayıyı yazıya çevirme, Türkçe slug. Sıfır bağımlılık.",
   "keywords": [
     "turkiye",
     "turkey",
@@ -11,6 +11,8 @@
     "vkn",
     "vergi-numarasi",
     "iban",
+    "telefon",
+    "phone",
     "sayiyi-yaziya-cevir",
     "number-to-words",
     "slugify"

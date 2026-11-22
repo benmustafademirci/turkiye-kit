@@ -6,10 +6,11 @@
 Türkiye'ye özel doğrulama ve biçimlendirme araçları. **Sıfır bağımlılık**, TypeScript tipleri dahil, Node.js, tarayıcı, Bun ve Deno'da çalışır.
 
 ```ts
-import { isValidTCKN, isValidIBAN, moneyToWords, slugify } from 'turkiye-kit';
+import { isValidTCKN, isValidIBAN, formatPhone, moneyToWords, slugify } from 'turkiye-kit';
 
 isValidTCKN('10000000146');                    // true
 isValidIBAN('TR33 0006 1005 1978 6457 8413 26'); // true
+formatPhone('05321234567', 'international');   // '+90 532 123 45 67'
 moneyToWords(1923.05);                         // 'bin dokuz yüz yirmi üç lira beş kuruş'
 slugify('Çok Güzel Şarkılar');                 // 'cok-guzel-sarkilar'
 ```
@@ -64,6 +65,27 @@ isValidIBAN('DE89370400440532013000');           // false (yalnızca Türk IBAN'
 formatIBAN('tr330006100519786457841326');        // 'TR33 0006 1005 1978 6457 8413 26'
 ```
 
+### Telefon numarası
+
+```ts
+import { parsePhone, isValidPhone, formatPhone } from 'turkiye-kit';
+
+// Her yaygın yazım kabul edilir: +90…, 0090…, 0…, boşluklu, tireli, parantezli
+isValidPhone('+90 532 123 45 67');         // true
+isValidPhone('(0532) 123-45-67');          // true
+isValidPhone('0212 345 67 89', 'mobile');  // false (sabit hat, cep değil)
+
+parsePhone('0850 123 45 67');  // { type: 'voip', nationalNumber: '8501234567' }
+parsePhone('444 1 444');       // { type: 'uan', nationalNumber: '4441444' }
+
+formatPhone('05321234567');                  // '0532 123 45 67'
+formatPhone('05321234567', 'international'); // '+90 532 123 45 67'
+formatPhone('05321234567', 'e164');          // '+905321234567' (veritabanı ve SMS için)
+formatPhone('02123456789');                  // '(0212) 345 67 89'
+```
+
+Desteklenen türler: `mobile` (05xx), `landline` (sabit hat, KKTC dahil), `tollFree` (0800, 0811), `premium` (0900), `voip` (0850), `uan` (444), `pager` (0512), `personal` (0592 uydu).
+
 ### Sayıyı yazıya çevirme
 
 ```ts
@@ -97,6 +119,9 @@ slugify('Çok Güzel Şarkılar', '_'); // 'cok_guzel_sarkilar'
 | `isValidTaxId(value)` | VKN veya TCKN kabul eder |
 | `isValidIBAN(value)` | Türk IBAN'ını mod 97 ile kontrol eder |
 | `formatIBAN(value)` | IBAN'ı 4'erli gruplar hâlinde yazar |
+| `parsePhone(value)` | Telefon numarasının türünü ve sade hâlini döndürür |
+| `isValidPhone(value, type?)` | Telefon numarasını kontrol eder, istenirse türünü de |
+| `formatPhone(value, format?)` | Telefonu ulusal, uluslararası veya E.164 biçiminde yazar |
 | `numberToWords(n)` | Tam sayıyı Türkçe yazıya çevirir |
 | `moneyToWords(amount, options?)` | Tutarı lira/kuruş olarak yazıya çevirir |
 | `slugify(text, separator?)` | Türkçe karakterleri doğru çevirerek URL dostu metin üretir |
@@ -116,12 +141,18 @@ Doğrulama fonksiyonları yalnızca numaranın **matematiksel olarak** geçerli 
 
 Katkıya açık konular. Başlamak için iyi yerler:
 
-- [ ] Telefon numarası doğrulama ve biçimlendirme (`+90 5xx xxx xx xx`)
+- [x] Telefon numarası doğrulama ve biçimlendirme (v0.2.0)
 - [ ] Araç plakası doğrulama (il kodu 01–81 ve harf/rakam düzenleri)
 - [ ] IBAN'dan banka adını bulma
 - [ ] İl ve ilçe listesi
 - [ ] Resmî tatiller (dinî bayramlar dahil)
 - [ ] Fatura tarzı bitişik yazım ("YalnızYüzYirmiÜçTürkLirası")
+
+## Kaynaklar
+
+- Telefon numarası aralıkları: Google [libphonenumber](https://github.com/google/libphonenumber) Türkiye verisi (Apache-2.0)
+- Vergi Kimlik Numarası algoritmasının doğrulaması: [python-stdnum](https://github.com/arthurdejong/python-stdnum)
+- IBAN örneği: SWIFT IBAN Registry
 
 ## Katkıda bulunma
 
@@ -135,4 +166,4 @@ Katkılarınızı bekliyoruz! Nasıl başlayacağınız [CONTRIBUTING.md](CONTRI
 
 ### English
 
-`turkiye-kit` is a zero-dependency TypeScript library for Turkey-specific validation and formatting: Turkish national ID (TCKN), tax ID (VKN), Turkish IBAN, number-to-words in Turkish, and Turkish-aware slugify. Works in Node.js, browsers, Bun and Deno. Install with `npm install turkiye-kit`.
+`turkiye-kit` is a zero-dependency TypeScript library for Turkey-specific validation and formatting: Turkish national ID (TCKN), tax ID (VKN), Turkish IBAN, Turkish phone numbers (validation, type detection, formatting), number-to-words in Turkish, and Turkish-aware slugify. Works in Node.js, browsers, Bun and Deno. Install with `npm install turkiye-kit`.
